@@ -25,11 +25,11 @@ bun create next-app --example with-docker nextjs-docker
 ## Using Docker
 
 1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.
-1. Build your container: 
+1. Build your container:
     ```bash
     # For npm, pnpm or yarn
     docker build -t nextjs-docker .
-    
+
     # For bun
     docker build -f Dockerfile.bun -t nextjs-docker .
     ```

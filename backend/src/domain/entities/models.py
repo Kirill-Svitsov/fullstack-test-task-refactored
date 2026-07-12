@@ -1,7 +1,10 @@
 from datetime import datetime
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, JSON, String, func
+
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
+
 from src.core.database import Base
+
 
 class StoredFile(Base):
     __tablename__ = "files"
@@ -28,6 +31,7 @@ class StoredFile(Base):
         onupdate=func.now(),
         nullable=False,
     )
+
 
 class Alert(Base):
     __tablename__ = "alerts"

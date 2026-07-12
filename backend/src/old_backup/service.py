@@ -5,10 +5,9 @@ from uuid import uuid4
 
 from fastapi import HTTPException, UploadFile, status
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 from src.models import Alert, StoredFile
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STORAGE_DIR = BASE_DIR / "storage" / "files"
@@ -58,7 +57,9 @@ async def create_file(title: str, upload_file: UploadFile) -> StoredFile:
         title=title,
         original_name=upload_file.filename or stored_name,
         stored_name=stored_name,
-        mime_type=upload_file.content_type or mimetypes.guess_type(stored_name)[0] or "application/octet-stream",
+        mime_type=upload_file.content_type
+        or mimetypes.guess_type(stored_name)[0]
+        or "application/octet-stream",
         size=len(content),
         processing_status="uploaded",
     )

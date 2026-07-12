@@ -1,10 +1,18 @@
-from fastapi import FastAPI, HTTPException
-from fastapi import File, Form, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from starlette import status
+
 from src.schemas import AlertItem, FileItem, FileUpdate
-from src.service import create_file, delete_file, get_file, list_alerts, list_files, update_file, STORAGE_DIR
+from src.service import (
+    STORAGE_DIR,
+    create_file,
+    delete_file,
+    get_file,
+    list_alerts,
+    list_files,
+    update_file,
+)
 from src.tasks import scan_file_for_threats
 
 app = FastAPI()
