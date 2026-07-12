@@ -1,11 +1,9 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, JSON, String, func
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String, func
+from sqlalchemy.orm import Mapped, mapped_column
 
-
-class Base(DeclarativeBase):
-    pass
+from src.core.database import Base
 
 
 class StoredFile(Base):
